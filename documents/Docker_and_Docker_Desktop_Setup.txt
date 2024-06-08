@@ -1,0 +1,33 @@
+#Check which shel you have
+
+echo $SHELL
+
+
+
+# For Bash Shell
+
+echo 'function docker_run() { docker run --rm=True -u $(id -u):$(id -g) -v $(pwd):/data "$@" ;}' >> ~/.bash_profile
+
+
+
+#To check the above command has worked properly open bashrc file using:
+
+cat .bash_profile or nano .bash_profile
+
+
+
+#Source the Bashrc
+
+source ~/.bash_profile
+
+
+#This shouldn’t give any output
+#To check docker is working and docker images downloaded
+
+
+docker images | grep "staphb\|sanger\|ncbi"| wc -l
+
+
+
+
+#Run Code

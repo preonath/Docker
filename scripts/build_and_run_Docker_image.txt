@@ -1,0 +1,47 @@
+Step 1: Write the Python and Bash Scripts
+You created two scripts that output "Hello World":
+	hello.py (Python Script):
+	print("Hello World")
+	
+	
+	hello.sh (Bash Script):
+	#!/bin/bash
+	echo "Hello World"
+
+Step 2: Write the Dockerfile
+You wrote a Dockerfile that specifies how to build the Docker image:
+	Dockerfile
+	# Use an official Python runtime as the parent image
+	FROM python:3.8-slim
+
+	# Set the working directory in the container to /app
+	WORKDIR /app
+
+	# Copy the current directory contents into the container at /app
+	COPY . /app
+
+	# Define the command to run when the container starts
+	CMD ["python", "hello.py"]
+
+
+Step 3: Build the Docker Image
+You then built the Docker image with the following command:
+	# docker build: Tells Docker to build an image.
+	# -t hello-world-app: Tags the image with the name "hello-world-app".
+	# .: Tells Docker to use the Dockerfile in the current directory.
+	
+
+
+	
+Step 4: Fix Dockerfile Naming Issue
+	#You had an issue where your Dockerfile was named with a space in front, and Docker could not find it. You fixed the naming with:
+	mv ' Dockerfile' Dockerfile
+
+
+Step 5: Run the Docker Container
+	# To run the Python script, you would execute:
+	docker run hello-world-app
+
+	# To run the Bash script instead, you would execute:
+	docker run --rm hello-world-app /bin/bash hello.sh
+
